@@ -1,9 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <b-navbar toggleable class="navegacion" type="dark" >
+    <b-navbar-brand :to="{name: 'Home'}">Moneda</b-navbar-brand>
+
+    <b-navbar-toggle target="navbar-toggle-collapse">
+      <template v-slot:default="{ expanded }">
+        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+        <b-icon v-else icon="chevron-bar-down"></b-icon>
+      </template>
+    </b-navbar-toggle>
+
+    <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item :to="{name: 'buscador'}">Cotiza por Fecha</b-nav-item>
+        <b-nav-item :to="{ name: 'historial' }">Historial</b-nav-item>
+        
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
     <router-view/>
   </div>
 </template>
@@ -14,19 +28,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+   background-image: url(assets/fondo_moneda.jpg);
+  color: #fff;
+  min-height: 600px;
+  width: 100%;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.navegacion{
+  background-color: #021d5d;
+ 
 }
 </style>
