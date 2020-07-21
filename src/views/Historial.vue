@@ -1,7 +1,8 @@
 <template>
     <div class="historial">
-    
+    <h1 v-if="Historial.length==0">el historial esta vacio</h1>
      <div
+     v-else
       class="tablaFecha container mt-5"
       v-for="(item, i) in Historial"
       :key="i"
@@ -47,5 +48,8 @@ computed: {
 <style lang="scss">
 .historial{
     height: auto;
+}
+.Historialvacio{
+  color: #fff;
 }
 </style>
